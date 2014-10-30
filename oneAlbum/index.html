@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="css.css" />
+<script type="text/javascript" src="../_js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript">var zjf$=jQuery.noConflict();</script>
+<!--[if IE 6]>
+<script type="text/javascript" src="../_js/DD_belatedPNG.js"></script>
+<script type="text/javascript">DD_belatedPNG.fix('.close,.btnlt,.btnrt');</script>
+<![endif]-->
+<script type="text/javascript">
+//为每li的点击后展开的画面准备数据
+var jsondata={
+    '封面':{'img':'images/2_1.jpg','img2':[],'videoUrl':''},
+    'adele':{'img':'images/6_1.gif','img2':['images/aedel-1.jpg','images/aedel-2.jpg','images/aedel-3.jpg','images/aedel-4.jpg','images/aedel-5.jpg'],'videoUrl':'http://v.youku.com/v_show/id_XNDkxOTA4MTY4.html'},
+    '甲壳虫':{'img':'images/7_1.gif','img2':['images/jkq_1.jpg','images/jkq_2.jpg','images/jkq_3.jpg','images/jkq_4.jpg','images/jkq_5.jpg'],'videoUrl':'http://v.youku.com/v_show/id_XNDc2NzQ0NzYw.html'},
+    '鸟叔':{'img':'images/4_1.gif','img2':['images/ns_1.jpg','images/ns_2.jpg','images/ns_3.jpg','images/ns_4.jpg','images/ns_5.jpg'],'videoUrl':'http://www.tudou.com/programs/view/6zxGqwRqfFE/'},
+    '凤凰传奇':{'img':'images/3_1.gif','img2':['images/fhcq_1.jpg','images/fhcq_2.jpg','images/fhcq_3.jpg','images/fhcq_4.jpg','images/fhcq_5.jpg'],'videoUrl':'http://v.ku6.com/show/4QztQlih0jYgKcLWozYVnQ...html?f=s&nv=1&st=1_1_1'},
+    '我的歌声里':{'img':'images/5_1.gif','img2':['images/qwt_1.jpg','images/qwt_2.jpg','images/qwt_3.jpg','images/qwt_4.jpg','images/qwt_5.jpg'],'videoUrl':'http://www.56.com/u52/v_NzE5MDE1NTI.html'},
+    '杨幂':{'img':'images/8_1.gif','img2':['images/ymi_1.jpg','images/ymi_2.jpg','images/ymi_3.jpg','images/ymi_4.jpg','images/ymi_5.jpg'],'videoUrl':'http://v.youku.com/v_show/id_XMjg5OTE5NzQ0.html'},
+    '洗剪吹':{'img':'images/9_1.gif','img2':['images/xjc_1.jpg','images/xjc_2.jpg','images/xjc_3.jpg','images/xjc_4.jpg','images/xjc_5.jpg'],'videoUrl':'http://v.youku.com/v_show/id_XNDc3NDIzODY4.html'},
+    '结语':{'img':'images/10_1.gif','img2':[],'videoUrl':''},
+    '前言':{'img':'images/0_2.gif','img2':[],'videoUrl':''}
+};
+</script>
+<script type="text/javascript" src="yearend.js"></script>
+</head>
+
+<body>
+<div class="main">
+    <div class="picover">
+        <div class="close" title="关闭"></div>
+        <div class="btnlt btnlt_2" id="btnlt2"></div>
+        <div class="btnrt btnrt_2" id="btnrt2"></div>
+        <div class="player">
+            <div class="playerin">
+                <div class="sdfsdf"><ul class="ulimgs"></ul></div>
+                <div class="playcut">
+                    <div id="btnlt" class="btnlt"></div>
+                    <div id="btnrt" class="btnrt"></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="address"><a class="addresstxt" href="" target="_blank"><span id="addresstxt">no link now</span><img src="images/seevido.gif" alt=""></a></div>
+        </div>
+    </div>
+    <ul class="picul clearfix">
+        <!--[if IE 6]>
+        <li class="ie6li">&nbsp;</li>
+        <li class="ie6li">&nbsp;</li>
+        <![endif]-->
+        <li data-id="封面">
+            <img src="images/1_03.jpg" width="180" height="180" alt="" />
+            <div>
+                <em><img src="images/1_03.jpg" width="180" height="180" alt="" /></em>
+                <h4>封面</h4>
+                <h5>金曲银曲不如神曲</h5>
+                <p>专题内容可能会使您感到欢乐、悲伤、激动、癫狂，为了您的健康请保持心态平和，慎重点击！<a href="">点击查看详情</a></p>
+            </div>
+        </li>
+        <li data-id="前言">
+            <img src="images/0_1.gif" width="180" height="180" alt="" />
+            <div>
+                <em><img src="images/0_1.gif" width="180" height="180" alt="" /></em>
+                <h4>前言</h4>
+                <h5>我们就要高唱神曲开创未来……</h5>
+                <p>世界各地红旗招展，神曲一片，群众纷纷发来贺电， 热烈庆祝玛雅人这一不靠谱的预言。幸甚至哉！歌以咏之.<a href="">点击查看详情</a></p>
+            </div>
+        </li>
+        <li class="rt" data-id="adele">
+            <img src="images/1_07.jpg" width="180" height="180" alt="" />
+            <div>
+                <em class="fr"><img src="images/1_07.jpg" width="180" height="180" alt="" /></em>
+                <h4>Adele</h4>
+                <h5>用心灵去诠释那些触碰到就会心碎的回忆</h5>
+                <p>用心灵去诠释那些触碰到就会心碎的回忆，瞬间的认同感征服了大众。这也许就是《someone like you》这首歌被大众所传唱的最主要原因。<a href="">点击查看详情</a></p>
+            </div>
+        </li>
+        <li data-id="甲壳虫">
+            <img src="images/1_13.jpg" width="180" height="180" alt="" />
+            <div>
+                <h4>the beatles</h4>
+                <h5>有一首神曲，已诞生了半个世纪......</h5>
+                <p>有一首神曲，已诞生了半个世纪，却依然在今年的7月份被数万人唱响在伦敦的夜晚。带头唱响这 首神曲的正是披头士成员保罗.麦科特尼......<a href="">点击查看详情</a></p>
+                <em><img src="images/1_13.jpg" width="180" height="180" alt="" /></em>
+            </div>
+        </li>
+        <li><a href="" target="_blank"><img src="images/1_05.jpg" width="180" height="180" alt="" /></a></li>
+        <li data-id="鸟叔">
+            <div>
+                <h4>鸟叔</h4>
+                <h5>psy鸟叔真是精力充沛活力十足</h5>
+                <p>一曲《江南Style》肥而不腻的把地球人带入了“骑疯马”时代 。就连飓风“桑迪”都没有阻止的了《江南Style》 席卷世界各国歌曲榜单。<a href="">点击查看详情</a></p>
+                <em><img src="images/1_15.jpg" width="180" height="180" alt="" /></em>
+            </div>
+            <img src="images/1_15.jpg" width="180" height="180" alt="" />
+        </li>
+        <li data-id="凤凰传奇">
+            <div>
+                <h4>凤凰传奇</h4>
+                <h5>《最炫民族风》大街小巷，广场公园无处不在的唱着跳着</h5>
+                <p>《最炫民族风》成了孩子们的狂欢曲，青年们的私会曲，壮年们的健身曲，老年们的夕阳曲。连续五场演唱会百分百上座率的票房“神话”.....<a href="">点击查看详情</a></p>
+                <em><img src="images/1_16.jpg" width="180" height="180" alt="" /></em>
+            </div>
+            <img src="images/1_16.jpg" width="180" height="180" alt="" />
+        </li>
+        <li class="rt" data-id="我的歌声里">
+            <div>
+                <h4>曲婉婷/李代沫</h4>
+                <h5>这是一场原唱与翻唱的较量</h5>
+                <p>《我的歌声里》在龙年着实红火了一把，由翻唱此曲引发的官司也是闹得满城风雨，这是一场原 唱与翻唱的较量。甚至有网友称希望两人能真的在一起。<a href="">点击查看详情</a></p>
+                <em class="fr"><img src="images/1_17.jpg" width="180" height="180" alt="" /></em>
+            </div>
+            <img src="images/1_17.jpg" width="180" height="180" alt="" />
+        </li>
+        <li class="lb" data-id="杨幂">
+            <div>
+                <h4>杨幂</h4>
+                <h5>最一曲见效神曲</h5>
+                <p>2012年再度燃烧 起无尽小宇宙的这首《爱的供养》，在年初到年中燃起了一把熊熊大火。<a href="">点击查看详情</a></p>
+                <em><img src="images/1_22.jpg" width="180" height="180" alt="" /></em>
+            </div>
+            <img src="images/1_22.jpg" width="180" height="180" alt="" />
+        </li>
+        <li class="lb" data-id="洗剪吹">
+            <div>
+                <h4>洗剪吹</h4>
+                <h5>最提神醒脑神曲</h5>
+                <p>虽然，对于“神曲”的理解，本来是仁者见仁智者见智的。但能想到同是社会主义国家越南已将 本国神曲在该领域中提升到了一个不寒而栗令人发指的全新高度。<a href="">点击查看详情</a></p>
+                <em class="fr"><img src="images/1_01.jpg" width="180" height="180" alt="" /></em>
+            </div>
+            <img src="images/1_01.jpg" width="180" height="180" alt="" />
+        </li>
+        <li class="lb" data-id="结语">
+            <div>
+                <h4>结语</h4>
+                <h5>我们的生活必将如神曲一样</h5>
+                <p>中国好声音冠军居然是梁博、比如说玛雅人说话不靠谱、再比如说，今年出了个我爱歌……<a href="">点击查看详情</a></p>
+                <em><img src="images/1_26.jpg" width="180" height="180" alt="" /></em>
+            </div>
+            <img src="images/1_26.jpg" width="180" height="180" alt="" />
+        </li>
+        <li><a href="" target="_blank"><img src="images/1_05.jpg" width="180" height="180" alt="" /></a></li>
+    </ul>
+</div>
+</body>
+</html>

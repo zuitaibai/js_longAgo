@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>首页</title>
+<style>
+.focus_index{position:relative;height:484px;overflow:hidden;}
+
+.btn{position:absolute;top:218px;width:59px;height:72px;background:url(images/ss_16.png) no-repeat;z-index:11;cursor:pointer;opacity:.3;filter:alpha(opacity=30);}
+.btnl{left:200px;background-position:0 -72px;}
+.btnr{right:200px;}
+.banner_r{height:100%;width:100%;position:absolute;top:0;left:0;background-position:center top;}
+</style>
+<script src="../../_js/jquery.1.8.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    /*焦点图*/
+    (function(listSelectStr,opts){
+        opts=$.extend({},{wait:4000,speed:'normal',tabs:'',leftbtn:'',rightbtn:''},opts||{});
+        var tNum=$(listSelectStr).length-1, nNum=n2=0, switchTime, arr=[],
+        bSwitch=function(nNum,n2){
+            $(listSelectStr+":eq("+nNum+")").fadeOut(opts.speed);
+            $(listSelectStr+":eq("+n2+")").fadeIn(opts.speed);
+            return arguments.callee;
+        },
+        auto=function(){
+            switchTime = setInterval(function(){
+                (nNum+1)>tNum?(n2=0):(n2=nNum+1);
+                bSwitch(nNum,n2);
+                nNum=n2;
+            },opts.wait);
+            return arguments.callee;
+        }();
+        $.each($(listSelectStr),function(i,n){
+            var src=$(n).css('background-image');
+            src=src.substring(5,src.length-2);
+            arr[i]=new Image();
+            arr[i].src=src;
+        });
+        if(opts.leftbtn){
+            $(opts.leftbtn).click(function(){
+                (nNum-1)<0?(n2=tNum):(n2=nNum-1);
+                bSwitch(nNum,n2);
+                nNum=n2;
+            });
+        }
+        if(opts.rightbtn){
+            $(opts.rightbtn).click(function(){
+                (nNum+1)>tNum?(n2=0):(n2=nNum+1);
+                bSwitch(nNum,n2);
+                nNum=n2;
+            });
+        }
+        $(listSelectStr).hover(function(){clearInterval(switchTime);},auto());
+        if(opts.leftbtn){$(opts.leftbtn).hover(function(){$(opts.leftbtn).fadeTo(100,1)},function(){$(opts.leftbtn).fadeTo(100,.3)});}
+        if(opts.rightbtn){$(opts.rightbtn).hover(function(){$(opts.rightbtn).fadeTo(100,1)},function(){$(opts.rightbtn).fadeTo(100,.3)});}
+        if(opts.tabs){
+            /*==========*/
+            /*==========*/
+        }
+    })('.banner_r',{leftbtn:'#btnlt',rightbtn:'#btnrt'});
+
+});
+</script>
+</head>
+
+<body>
+
+<div class="focus focus_index">
+    <div class="banner_r" style="background-image:url(images/ss_17.png);"></div>
+    <div class="banner_r" style="background-image:url(images/ss_17_1.png);display:none;"></div>
+    <div class="banner_r" style="background-image:url(images/ss_17_2.png);display:none;"></div>
+    <div class="banner_r" style="background-image:url(images/ss_17_3.png);display:none;"></div>
+    <div class="banner_r" style="background-image:url(images/ss_18.png);display:none;"></div>
+    
+    <div id="btnlt" class="btn btnl" title="向左"></div>
+    <div id="btnrt" class="btn btnr" title="向右"></div>
+</div>
+	
+
+</body>
+</html>

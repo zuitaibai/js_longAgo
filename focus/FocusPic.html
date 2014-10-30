@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>FocusPic</title>
+<style type="text/css">
+*{margin:0; padding:0}
+img{border:none}
+body{font:12px/2 "宋体"}
+
+
+#pic1{ width:288px; height:209px; overflow:hidden; border:1px solid #6F0; display:inline; float:left;}
+#pic2{ width:70px; height:212px; overflow:hidden; display:inline; float:left}
+#pic2 dd{ margin-bottom:2px;}
+#pic2 dd img{ border:1px solid #000; display:block/*display:block此项解决ie的img在竖向排列上的bug*/}
+#pic2 dd.cur img{ border-color:#f00}
+#txt{ width:284px; overflow:hidden; height:48px; background:#CCC;}
+
+.clr{ clear:both}
+</style>
+<script type="text/javascript" src="img/FocusPic.js"></script>
+</head>
+
+<body>
+
+<dl id="pic1">
+	<dd><a href=""><img src="img/f.jpg" width="288" height="208" alt="" /></a></dd>
+	<dd><a href=""><img src="img/pic1.png" width="288" height="208" alt="" /></a></dd>
+	<dd><a href=""><img src="img/pic02.jpg" width="288" height="208" alt="" /></a></dd>
+	<dd><a href=""><img src="img/pic03.jpg" width="288" height="208" alt="" /></a></dd>
+</dl>
+
+<dl id="pic2">
+	<dd class="cur"><img src="img/f.jpg" width="68" height="49" alt="" /></dd>
+	<dd><img src="img/pic1.png" width="68" height="49" alt="" /></dd>
+	<dd><img src="img/pic02.jpg" width="68" height="49" alt="" /></dd>
+	<dd><img src="img/pic03.jpg" width="68" height="49" alt="" /></dd>
+</dl>
+
+<div class="clr"></div>
+
+<div id="txt">
+	<p>1输卵管具有运送精子、拾取卵子及把受精卵运送到子宫腔的重要作用，输卵管不通或功能障碍...<a class="link1" href="">[详情]</a></p>
+	<p>2输卵管具有运送精子、拾取卵子及把受精卵运送到子宫腔的重要作用，输卵管不通或功能障碍...<a class="link1" href="">[详情]</a></p>
+	<p>3输卵管具有运送精子、拾取卵子及把受精卵运送到子宫腔的重要作用，输卵管不通或功能障碍...<a class="link1" href="">[详情]</a></p>
+	<p>4输卵管具有运送精子、拾取卵子及把受精卵运送到子宫腔的重要作用，输卵管不通或功能障碍...<a class="link1" href="">[详情]</a></p>
+</div>
+<script type="text/javascript">FocusPic('pic1','pic2',2800,'hover','cur','txt');</script>
+</body>
+</html>

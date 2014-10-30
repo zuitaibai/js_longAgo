@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>s</title>
+<style type="text/css">
+*{margin:0;padding:0;list-style:none;}
+.tabs{overflow:hidden;zoom:1;padding-left:1px;margin-left:100px;}
+.tabs li{float:left;display:inline;margin-left:-1px;border:1px solid #ccc;width:50px;text-align:center;}
+.active{color:#f00;}
+.cons{border:1px solid #000;border-top:0;width:254px;margin-left:100px;overflow:hidden;zoom:1;}
+.cons p{display:none;}
+.cons p.show{display:block;}
+.link{position:absolute;top:0;left:358px;}
+</style>
+</head>
+<body>
+<a class="link" id="link" href="">12345</a>
+<ul class="tabs" id="tabs1">
+    <li hrefto="1" class="active">1</li>
+    <li hrefto="2">2</li>
+    <li hrefto="3">3</li>
+    <li hrefto="4">4</li>
+    <li hrefto="5">5</li>
+</ul>
+<div class="cons" id="cons1">
+    <p class="show">1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+</div>
+
+<script>
+var zjftabs={
+    opeClass:function(ele,classname,r){ var oldcss=ele.className; if(oldcss){ oldcss=' '+oldcss+' '; if(oldcss.indexOf(' '+classname+' ')< 0){ if(r=='+') oldcss+=classname; } else{ if(r=='-') oldcss=oldcss.replace(' '+classname+' ',' '); } oldcss=zjftabs.trim(oldcss); ele.className=oldcss; } else{ if(r=='+') ele.className=classname; } },
+    trim:function(str){ return str.replace(/(^\s*)|(\s*$)/g, ""); },
+    extend:function(o1,o2){ var result={}; for(var i in o1) result[i]=o1[i]; if(typeof o2!='undefined'){ for(var i in o2) result[i]=o2[i]; } return result; },
+    addEvent:function(obj,eType,fn){ if(obj.addEventListener) obj.addEventListener(eType, fn, false); else if (obj.attachEvent)  obj.attachEvent('on' + eType, fn); else  obj['on' + eType] = fn; },
+    getSons:function(id){ var ele=document.getElementById(id); if((!ele)||(!ele.hasChildNodes())) return []; var allsons=ele.childNodes, backarr=[]; for(var i=0,l=allsons.length;i<l;i++){ if(allsons[i].nodeType==1) backarr.push(allsons[i]); } return backarr; },
+    defs:{activeClass:'active',eventType:'mouseover',conActiveClass:undefined,callBack:function(i,a,b){},hrefEle:undefined,hrefName:'hrefto'},
+    tabs:function(a1,a2,as){
+        var opts=zjftabs.extend(zjftabs.defs,as), linko=document.getElementById(opts.hrefEle); if(typeof a1=='string') a1=zjftabs.getSons(a1); if(typeof a2=='string') a2=zjftabs.getSons(a2);
+        for(var i= 0,l=a1.length;i<l;i++){ (function(i){ zjftabs.addEvent(a1[i],opts.eventType,function(){ for(var k=0;k<l;k++){ if(k==i){ zjftabs.opeClass(a1[k],opts.activeClass,'+'); if(opts.conActiveClass) zjftabs.opeClass(a2[k],opts.conActiveClass,'+'); else a2[k].style.display='block'; } else{ zjftabs.opeClass(a1[k],opts.activeClass,'-'); if(opts.conActiveClass) zjftabs.opeClass(a2[k],opts.conActiveClass,'-'); else a2[k].style.display='none'; } } opts.callBack.call(a1[i],i,a1[i],a2[i]); if(linko) linko.href=a1[i].getAttribute(opts.hrefName); }); })(i); }
+        if(linko) linko.href=a1[0].getAttribute(opts.hrefName);
+    }
+};
+</script>
+
+<script>
+/*调用： zjftabs.tabs(a1,a2,a3);*/
+/*参数
+* a1：[必选] 字符串或元素数组。当为字符串时，会遍历此id元素下的所有子元素。 如：zjftabs.tabs('ulId1','divId1');
+* a2：[必选] 同上。如：zjftabs.tabs('ulId1',document.getElementsByTagName('p'));
+* a3：[可选] 对象{}，里面字段可选。默认为：{activeClass:'active',eventType:'mouseover',conActiveClass:undefined,callBack:function(i,a,b){},hrefEle:undefined,hrefName:'hrefto'}
+*     activeClass：tabs当前活动项的class，默认为'active'
+*     eventType：鼠标作用方式，默认为'mouseover'
+*     conActiveClass：切换时，给当前显示的con添加的class，此时不再使用内定的display:block，默认为undefined
+*     callBack：单次切换完成时，回调函数。此函数的3个参数：当前活动项的序号（从0算起），当前活动项的tabDOM，当前活动项的conDOM，默认为function(i,a,b){}
+*     hrefName：你手动给每tab添加的属性名，属性值＝该tab对应的链接的链接地址，当单次切换完成时，链接元素会得到当前活动项对应的链接地址的更新，默认为'hrefto'
+*     hrefEle：链接的id。当指定此参数为某一字符串时，切换时更改id为此字符的链接元素的链接地址发生作用，默认为undefined
+* */
+
+
+/* 调用示例一：zjftabs.tabs('ID1','ID2'); */
+zjftabs.tabs('tabs1','cons1');
+
+/* 调用示例二： zjftabs.tabs(数组1,数组2); */
+//var a1=document.getElementById('tabs1').getElementsByTagName('li');
+//var a2=document.getElementById('cons1').getElementsByTagName('p');
+//zjftabs.tabs(a1,a2);
+
+/* 调用示例三： zjftabs.tabs(数组1 或 ID1 , 数组2 或 ID2); */
+//var a1=document.getElementById('tabs1').getElementsByTagName('li');
+//zjftabs.tabs(a1,'cons1');
+
+/* 调用示例四：zjftabs.tabs(参数一,参数二,{……}); */
+//zjftabs.tabs('tabs1','cons1',{activeClass:'active',eventType:'click'});
+
+/* 调用示例五：zjftabs.tabs(参数一,参数二,{……}); */
+//zjftabs.tabs('tabs1','cons1',{eventType:'click',callBack:function(i,a,b){alert('所点击的序号为：'+i);},hrefEle:'link',hrefName:'hrefto'});
+</script>
+</body>
+</html>

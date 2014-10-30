@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript">
+var data=[
+    {provice:'北京',city:'北京',name:'北京百计堂药品超市店安立路店',telephone:'84802581',address:'朝阳区安立路52号C座'},
+    {provice:'河北',city:'石家庄',name:'石家庄百济堂药品超市三里河店',telephone:'68572621',address:'河北地址1'},
+    {provice:'河北',city:'张家口',name:'张家口百姓阳光菜市口店',telephone:'63552755',address:'河北地址2'},
+    {provice:'河北',city:'邢台',name:'邢台百姓阳光大药房白纸坊 ',telephone:'63539022',address:'河北地址3'},
+    {provice:'河北',city:'沧州',name:'沧州百姓阳光大药房方庄店',telephone:'89709476',address:'河北地址4'},
+    {provice:'北京',city:'北京6',name:'北京博润康药店',telephone:'80108233',address:'北京市西城区三里河东路一区五号'},
+    {provice:'河南',city:'河南',name:'河南昌平区阳光商厦药店',telephone:'68222232',address:'河南地址'},
+    {provice:'江苏',city:'江苏',name:'江苏翠微康玉药店',telephone:'65001965',address:'江苏地址'}
+];
+
+var zjf={
+    get:function(str){return document.getElementById(str);},
+    list:[],
+    pageNum:3,
+    trim:function(str){ if(!str) return ''; return str.replace(/(^\s*)|(\s*$)/g, ""); },
+    bind:function(obj,eType,fn){ if(obj.addEventListener) obj.addEventListener(eType, fn, false); else if (obj.attachEvent)  obj.attachEvent('on' + eType, fn); else  obj['on' + eType] = fn; }
+};
+function dosearch(){
+    var a=zjf.trim(zjf.get('a').value),
+        b=zjf.trim(zjf.get('b').value),
+        c=zjf.trim(zjf.get('c').value),
+        d=zjf.trim(zjf.get('d').value),
+        e=zjf.trim(zjf.get('e').value);
+    zjf.list.length=0;
+    for(var i=0,l=data.length; i<l; i++){
+        var flag=true;
+        if(flag&&a) flag=data[i].provice.indexOf(a)>=0?true:false;
+        if(flag&&b) flag=data[i].city.indexOf(b)>=0?true:false;
+        if(flag&&c) flag=data[i].name.indexOf(c)>=0?true:false;
+        if(flag&&d) flag=data[i].telephone.indexOf(d)>=0?true:false;
+        if(flag&&e) flag=data[i].address.indexOf(e)>=0?true:false;
+        if(flag) zjf.list.push(data[i]);
+    }
+    dopage(1);
+}
+function dopage(p){
+    var count=zjf.list.length;
+    if(count<=0){
+        zjf.get('f').innerHTML='<tr><td colspan="5">无数据！</td></tr>';
+        zjf.get('g').innerHTML='';
+        return;
+    }
+    var pagecount=Math.ceil(count/zjf.pageNum);
+    if(p<1) p=1;
+    if(p>pagecount) p=pagecount;
+    var html1='';
+    for(var i=(p-1)*zjf.pageNum; i<p*zjf.pageNum; i++){
+        if(zjf.list[i]) html1+='<tr><td>'+zjf.list[i].provice+'</td><td>'+zjf.list[i].city+'</td><td>'+zjf.list[i].name+'</td><td>'+zjf.list[i].telephone+'</td><td>'+zjf.list[i].address+'</td></tr>\n';
+    }
+    zjf.get('f').innerHTML=html1;
+
+    if(pagecount<=1){ zjf.get('g').innerHTML=''; return; }
+    var pagelist='<tr>', p0=p-1<=1?1:p-1, p1=p+1>=pagecount?pagecount:p+1;
+    pagelist+=(p==1?'<td><a>上一页</a></td>':'<td><a href="javascript:dopage('+p0+');void(0);">上一页</a></td>');
+    for(var i=1;i<=pagecount;i++){
+        if(i==p) pagelist+=('<td>'+i+'</td>');
+        else pagelist+=('<td><a href="javascript:dopage('+i+');void(0);">'+i+'</a></td>');
+    }
+    pagelist+=(p>=pagecount?'<td><a>下一页</a></td>':'<td><a href="javascript:dopage('+p1+');void(0);">下一页</a></td>');
+    pagelist+='</tr>';
+    zjf.get('g').innerHTML=pagelist;
+}
+zjf.bind(window,'load',function(){
+    dosearch();
+    zjf.bind(zjf.get('a'),'blur',dosearch);
+    zjf.bind(zjf.get('b'),'blur',dosearch);
+    zjf.bind(zjf.get('c'),'blur',dosearch);
+    zjf.bind(zjf.get('d'),'blur',dosearch);
+    zjf.bind(zjf.get('e'),'blur',dosearch);
+});
+</script>
+</head>
+
+<body>
+<table width="100%">
+    <tr>
+        <td>省份</td>
+        <td>城市</td>
+        <td>名称</td>
+        <td>电话</td>
+        <td>地址</td>
+    </tr>
+    <tr>
+        <td><input type="text" name="" id="a" /></td>
+        <td><input type="text" name="" id="b" /></td>
+        <td><input type="text" name="" id="c" /></td>
+        <td><input type="text" name="" id="d" /></td>
+        <td><input type="text" name="" id="e" /></td>
+    </tr>
+    <tbody id="f"></tbody>
+</table>
+
+<table id="g"></table>
+</body>
+</html>

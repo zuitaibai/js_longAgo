@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>ChagneTab</title>
+<style type="text/css">
+*{margin:0; padding:0}
+ul,li{ list-style:none}
+
+#tabs{ height:40px; overflow:hidden; zoom:1;}
+#tabs li{ border:1px solid #000; float:left;  display:inline; height:38px; line-height:38px; margin-right:6px; text-align:center; width:80px; cursor:pointer }
+#tabs li.cur{ border-color:#f00; border-bottom-color:#fff; font-weight:bold; color:#00F}
+#shows{ height:50px; overflow:hidden; width:258px; border:1px solid #f00; border-top:none; margin-top:4px;}
+#shows p{ height:50px;}
+</style>
+<script type="text/javascript" src="ChagneTab.js"></script>
+</head>
+
+<body>
+
+<ul id="tabs">
+	<li class="cur">文本一</li>
+	<li>文本二</li>
+	<li>文本三</li>
+</ul>
+
+<div id="shows">
+	<p>这是文本一这是文本一这是文本一这是文本一这是文本一这是文本一</p>
+	<p>这是文本二这是文本二这是文本二这是文本二这是文本二这是文本二</p>
+	<p>这是文本三这是文本三这是文本三这是文本三这是文本三这是文本三</p>
+	<p>这是文本四这是文本四这是文本四这是文本四这是文本四这是文本四</p>
+</div>
+<script type="text/javascript">ChagneTab('tabs','shows','cur');</script>
+</body>
+</html>

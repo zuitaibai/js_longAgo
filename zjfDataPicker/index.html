@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../_js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="jQuery.ZJFdatedrop.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.zjfdatedrop').ZJFdatedrop();
+});
+</script>
+</head>
+<body>
+<input class="zjfdatedrop" type="text" style="margin-left:20px;height:24px;width:200px;border:3px solid #000">
+<input class="zjfdatedrop" type="text" style="position:absolute;right:50px;top:0;height:24px;width:200px;border:3px solid #000">
+<input class="zjfdatedrop" type="text" style="position:absolute;left:0;bottom:20px;height:24px;width:200px;border:3px solid #000">
+<input class="zjfdatedrop" type="text" style="position:absolute;right:50px;bottom:20px;height:24px;width:200px;border:3px solid #000">
+<input class="zjfdatedrop" type="text" style="position:absolute;left:48%;top:48%;height:24px;width:200px;border:3px solid #000">
+<p>简单使用：$('input').ZJFdatedrop();  详细设置参数使用：见页面源代码最下边</p>
+</body>
+</html>
+<script type="text/javascript">
+    /*$('某某').ZJFdatedrop({
+        startY:1800, //年份下拉列表下限
+        endY:2050, //年份下拉列表上限
+        initDate:[new Date().getFullYear(),new Date().getMonth()+1,new Date().getDate()], //初始为某年某月的界面
+        //ifStopUserInputKey:false, //是否阻止用户手动输入（input），此项暂未实现
+        dateStrJoinSign:'-', //格式化日期的中隔符
+
+        skin_warpCss:'min-width:260px;_width:260px;border:1px solid #6a7487;background:#fff;font:12px/28px arial;z-index:9999;float:none;text-indent:0;padding:0;margin:0;', //日历warp的css
+        skin_headBgColor:'#a2b9d9', //日历头部背景色
+        skin_headCenterWordCss:'margin-left:6px;font-size:14px;color:#193259;', //日历头部中间文字“年”、“月”的css
+        skin_headCenterNumCss:'color:#333;text-decoration:none;background:#fff;padding:0 5px;line-height:16px;height:16px;display:inline-block;zoom:1;', //日历头部中间数字的css
+        skin_headCenterSelectCss:'font-size:12px;', //日历头部中间下拉列表的css
+        skin_headLeftrightWordCss:'color:#233c5b;text-decoration:none;', //日历头部左右切换文字的css
+        skin_headLeftrightWordDisabledColor:'#838383', //日历头部左右切换文字被禁用时的颜色
+        skin_headLeftrightWordHoverColor:'#0059c4', //日历头部左右切换文字hover时的颜色
+        skin_headLeftrightWord:['◀','▶','◁','▷'], //日历头部左右切换文字的字符。顺序为：上一年，下一年，上一月，下一月
+        skin_neckCellCss:'background:#c0d0e9;color:#9c9c9c;font-weight:normal;line-height:20px;min-width:36px;_width:36px;',//日历颈部每单元的css
+        skin_neckSatdayWordColor:'#6b9d89', //日历颈部周六文字的颜色
+        skin_neckSundayWordColor:'#a7888b', //日历颈部周日文字的颜色
+        skin_neck_bodyCellCss:'text-align:center;border:1px solid #cdced3;', //日历颈部和主体部每单元的css
+        skin_bodyCellCss:'background:#e5e9f2;cursor:pointer;color:#272b36;', //日历主体部每单元的css
+        skin_bodyCellSatdayColor:'#498a70', //日历主体部周六数字的颜色
+        skin_bodyCellSundayColor:'#9e0e1e', //日历主体部周日数字的颜色
+        skin_bodyCellNoNumColor:'#f5f9fd', //日历主体部空白单元（没日期数字的单元）的数字颜色
+        skin_bodyCellTodayCss:'background:#5c8efd;font-weight:bold;color:#f00;', //日历主体部“今天”这个单元 的数字的颜色
+        skin_bodyCellChoosedCss:'background:#c0cff3;color:blue;', //日历主体部“上次已选择”这个单元 的数字的颜色
+        skin_bodyCellHoverCss:'background:#5c5c5c;font-size:18px;color:#fff;', //日历主体部每单元hover的css
+        skin_footWordCss:'color:#06bcea;text-decoration:none;', //日历脚部文字的css
+        skin_footLeftRightWord:['关闭','今天'] //日历脚部文字的字符
+    });*/
+</script>

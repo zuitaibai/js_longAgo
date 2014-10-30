@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>MeunStep</title>
+<style type="text/css">
+*{ margin:0; padding:0}
+ul,li{list-style:none}
+/*第一个效果*/
+.first li{float:left; display:inline; width:80px; height:40px; text-align:center; margin-right:10px; background:#ccc; position:relative}
+.first li.cur{ background:#906}
+.p1{ height:20px; line-height:20px; font-weight:bold; font-size:14px; color:#f00}
+.first li.cur .p1{ color:#000}
+.div1{ height:16px; line-height:14px; color:#666}
+.first li.cur .div1{ color:#fff}
+.first dl{position:absolute; left:0; top:40px; display:none; text-align:left; width:60px; padding-left:20px; background:#69F}
+.first dl dd{ height:30px; line-height:30px;}
+
+/*第二个效果*/
+.second{width:200px; margin-top:300px; border-top:1px solid #000}
+.second li div{ position:absolute; width:700px; height:500px; border:1px solid #000; border-left:none; left:198px; top:-1px; display:none}
+.second li {position:relative;border:1px solid #ccc;margin-top:-1px; height:30px; line-height:30px;}
+.second li.cur{ border-right:none; color:#f00; font-weight:bold;border-color:#f00;margin-top:0;}
+.second li.cur div{display:block; border-left:none; color:#000}
+</style>
+
+</head>
+
+<body>
+<ul id="ulid" class="first">
+	<li>
+		<p class="p1">slkdfj</p>
+		<div class="div1">skldf</div>
+		<dl class="dl sb">
+			<dd><a href="">dsdf0</a></dd>
+			<dd><a href="">sdf1</a></dd>
+			<dd><a href="">dfeeg2</a></dd>
+			<dd><a href="">sdfsdf3</a></dd>
+		</dl>
+	</li>
+	<li>
+		<p class="p1">slkdfj</p>
+		<div class="div1">skldf</div>
+	</li>
+	<li>
+		<p class="p1">slkdfj</p>
+		<div class="div1">skldf</div>
+		<dl class="sdfe dl sdfs sdfd">
+			<dd><a href="">dsdf</a></dd>
+			<dd><a href="">sdf</a></dd>
+			<dd><a href="">dfeeg</a></dd>
+			<dd><a href="">sdfsdf</a></dd>
+		</dl>
+	</li>
+	<li>
+		<p class="p1">slkdfj</p>
+		<div class="div1">skldf</div>
+		<dl class="dl">
+			<dd><a href="">dsdf</a></dd>
+			<dd><a href="">sdf</a></dd>
+			<dd><a href="">dfeeg</a></dd>
+			<dd><a href="">sdfsdf</a></dd>
+		</dl>
+	</li>
+	<li>
+		<p class="p1">slkdfj</p>
+		<div class="div1">skldf</div>
+		<dl class="dl">
+			<dd><a href="">dsdf</a></dd>
+			<dd><a href="">sdf</a></dd>
+			<dd><a href="">dfeeg</a></dd>
+			<dd><a href="">sdfsdf</a></dd>
+		</dl>
+	</li>
+	<li>
+		<p class="p1">slkdfj</p>
+		<div class="div1">skldf</div>
+		<dl>
+			<dd><a href="">dsdf</a></dd>
+			<dd><a href="">sdf</a></dd>
+			<dd><a href="">dfeeg</a></dd>
+			<dd><a href="">sdfsdf</a></dd>
+		</dl>
+	</li>
+</ul>
+
+<div style="clear:both"></div>
+
+<ul class="second" id="second">
+	<li class="cur">
+		<p>这是第1项</p>
+		<div>这是第1项</div>
+	</li>
+	<li>
+		<p>这是第2项</p>
+		<div>这是第2项</div>
+	</li>
+	<li>
+		<p>这是第3项</p>
+		<div>这是第3项</div>
+	</li>
+	<li>
+		<p>这是第4项</p>
+		<div>这是第4项</div>
+	</li>
+</ul>
+<div class="secondrt">
+
+</div>
+
+<script type="text/javascript" src="MeunStep.js"></script>
+<script type="text/javascript">
+MeunStep('ulid','.dl');
+MeunStep('second','div',false,'cur',false);
+</script>
+</body>
+</html>

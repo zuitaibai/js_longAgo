@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/ss.css" rel="stylesheet" type="text/css" />
+<script src="../_js/jquery.1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+    function focus_zjf(){
+        //tabs横一屏:657    tab：73*9    big宽：680
+        this.curindex=this.tabulLleft=0;
+        this.timer=null;
+        this.ltbtn=$('#focus-zjf-btn_lt');
+        this.rtbtn=$('#focus-zjf-btn_rt');
+        this.biglist=$('#focus-zjf-big>div');
+        this.tabul=$('#focus-zjf-tablist');
+        this.tablist=$('#focus-zjf-tablist>li');
+        this.txtlist=$('#focus-zjf-txt>p');
+        this.tabswWidth=$('#focus-zjf-tablist').width();
+        this.init();
+    }
+    focus_zjf.prototype.init=function(){
+        this.txtlist.hide().eq(0).show();
+        this.tablist.eq(0).addClass('cur');
+        this.ltbtn.hover(function(){ $(this).addClass('focus-zjf-add_lt'); },function(){ $(this).removeClass('focus-zjf-add_lt'); });
+        this.rtbtn.hover(function(){ $(this).addClass('focus-zjf-add_rt'); },function(){ $(this).removeClass('focus-zjf-add_rt'); });
+        this.tabbindhover();
+        this.btnbindclick();
+    };
+    focus_zjf.prototype.showone=function(){
+        this.biglist.stop();
+        this.biglist.css('z-index','2').eq(this.curindex).css({'left':'680px','z-index':'3'}).animate({left:'0px'},600);
+    };
+    focus_zjf.prototype.tabbindhover=function(){
+        var that=this;
+        that.tablist.hover(function(){
+            var ind=$(this).index();
+            that.curindex=ind;
+            that.showone();
+            that.tablist.removeClass('cur');
+            $(this).addClass('cur');
+            that.txtlist.hide().eq(ind).show();
+        });
+    };
+    focus_zjf.prototype.btnbindclick=function(){
+        var that=this;
+        that.ltbtn.click(function(){
+            if(-(that.tabulLleft-657)>=that.tabswWidth) return;
+            that.tabul.animate({left:that.tabulLleft-657+'px'},600);
+            that.tabulLleft=that.tabulLleft-657;
+        });
+        that.rtbtn.click(function(){
+            if(that.tabulLleft>=0) return;
+            that.tabul.animate({left:that.tabulLleft+657+'px'},600);
+            that.tabulLleft=that.tabulLleft+657;
+        });
+    };
+
+    var s=new focus_zjf();
+});
+</script>
+</head>
+
+<body style="margin:100px;">
+
+<div class="focus-zjf">
+    <div class="focus-zjf-1w">
+        <div class="focus-zjf-big" id="focus-zjf-big">
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+            <div><a href=""><img src="images/cg_b01.jpg" width="680" height="383" alt="" /></a></div>
+        </div>
+        <div class="focus-zjf-tab">
+            <div class="focus-zjf-tab-in">
+                <div class="focus-zjf-tab-in-in">
+                    <ul id="focus-zjf-tablist">
+                        <li><a href=""><img src="images/cg_f_01.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_02.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_03.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_04.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_05.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_06.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_07.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_08.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_09.gif" width="58" height="58" alt="" /><span></span></a></li>
+
+                        <li><a href=""><img src="images/cg_f_010.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_011.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_012.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_01.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_02.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_03.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_04.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_05.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_06.gif" width="58" height="58" alt="" /><span></span></a></li>
+
+                        <li><a href=""><img src="images/cg_f_07.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_08.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_09.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_010.gif" width="58" height="58" alt="" /><span></span></a></li>
+                        <li><a href=""><img src="images/cg_f_011.gif" width="58" height="58" alt="" /><span></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="focus-zjf-txt" id="focus-zjf-txt">
+            <p><a href="">文字1</a></p>
+            <p><a href="">文字2</a></p>
+            <p><a href="">文字3</a></p>
+            <p><a href="">文字4</a></p>
+            <p><a href="">文字5</a></p>
+            <p><a href="">文字6</a></p>
+            <p><a href="">文字7</a></p>
+            <p><a href="">文字8</a></p>
+            <p><a href="">文字9</a></p>
+
+            <p><a href="">文字10</a></p>
+            <p><a href="">文字11</a></p>
+            <p><a href="">文字12</a></p>
+            <p><a href="">文字13</a></p>
+            <p><a href="">文字14</a></p>
+            <p><a href="">文字15</a></p>
+            <p><a href="">文字16</a></p>
+            <p><a href="">文字17</a></p>
+            <p><a href="">文字18</a></p>
+
+            <p><a href="">文字19</a></p>
+            <p><a href="">文字20</a></p>
+            <p><a href="">文字21</a></p>
+            <p><a href="">文字22</a></p>
+            <p><a href="">文字23</a></p>
+        </div>
+        <div class="focus-zjf-btn">
+            <div class="focus-zjf-btn_lt" id="focus-zjf-btn_lt"></div>
+            <div class="focus-zjf-btn_rt" id="focus-zjf-btn_rt"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

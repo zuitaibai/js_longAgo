@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="coverflow.css" />
+<script type="text/javascript" src="../_js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="coverflow.js"></script>
+</head>
+
+<body>
+<div id="containerss"></div>
+	
+	<script type="text/javascript">
+		function reset() {
+
+			var replacement = document.createElement('div');
+			replacement.id = "containerss";
+
+			var el = document.getElementById('containerss');
+			el.parentNode.replaceChild(replacement, el);
+			
+			coverflow('containerss').setup({
+				//mode: "flash",
+				//showduration: true,
+				//playlist: "playlist.json",
+				//playlist: "http://api.flickr.com/services/feeds/groups_pool.gne?id=807213@N20&format=json&jsoncallback=?",
+				//route: {
+				// 	playlist: "items",
+				// 	image: "media.m"
+				//},
+				flash:"flash/coverflow.swf",
+				width:1000,
+				height:514,
+				backgroundopacity:0,
+				playlist: [
+					{
+						"title": "0",
+						"description": "这是前言",
+						"image": "images/7.jpg"
+					},
+					{
+						"title": "1",
+						"description": "111111111111",
+						"image": "images/1.jpg",
+						"link": "http://www.google.com/",
+						"duration": "183"
+					},
+					{
+						"title": "2",
+						"description": "",
+						"image": "images/2.jpg",
+						"duration": "782"
+					},
+					{
+						"title": "3",
+						"description": "333333333333333333333",
+						"image": "images/3.jpg"
+					},
+					{
+						"title": "4",
+						"description": "",
+						"image": "images/4.jpg"
+					},
+					{
+						"title": "5",
+						"description": "",
+						"image": "images/5.jpg"
+					},					
+					{
+						"title": "6",
+						"description": "",
+						"image": "images/8.jpg"
+					},
+					{
+						"title": "7",
+						"description": "7777777777777777777777",
+						"image": "images/9.jpg"
+					},
+					{
+						"title": "8",
+						"description": "这是结语",
+						"image": "images/6.jpg"
+					}
+				],
+				coverwidth: 420,
+				coverheight: 220,
+				fixedsize: true,
+				textoffset: 50
+			})
+			.on('ready', function() {
+
+				this.on('focus', function(index) {
+					document.getElementById('focusindex').innerHTML = index;
+				});
+				
+				this.on('click', function(index, link) {
+					document.getElementById('clickindex').innerHTML = index;
+					console.log(link);
+				});
+			});
+		}
+
+		reset();
+	</script>
+
+<div style="width:1000px;">
+	<div style="float:right;">当前: <b id="focusindex">0</b> | 已占击: <b id="clickindex">0</b></div>
+	<p>
+		<a href="javascript:;" onClick="coverflow().left();">左</a> <a href="javascript:;" onClick="coverflow().right();">右</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+        <a href="javascript:;" onClick="coverflow().prev();">上一张</a> <a href="javascript:;" onClick="coverflow().next();">下一张</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+		<input id="toval" value="0" size="1"> <a href="javascript:;" onClick="coverflow().to(document.getElementById('toval').value);">转到</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <button onClick="reset();">重置</button>
+    </p>
+</div>
+
+
+</body>
+</html>

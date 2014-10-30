@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{/*加入实际项目此样式不要*/margin:0;padding:0;font-size:12px;line-height:1.5;}
+</style>
+<script type="text/javascript">
+function alerts(s){
+	var _id=function(id){return document.getElementById(id)}, alertdiv=_id('alert_55');
+	if(!alertdiv){
+		var div=document.createElement('div');
+		div.id='alert_55';
+		div.style.cssText='position:fixed;_position:absolute;min-width:200px;max-width:450px;min-height:50px;left:50%;top:50%;margin:-25px 0 0 -100px;font-size:12px;display:none;border:1px solid #dbb880;';
+		var html='';
+		html+='<div style="position:relative;padding:3px 6px 0 10px;background:#fcf9e6;border:6px solid #f9af56;">';
+		html+='<span id="close_alert55" title="关闭" style="position:absolute;right:6px;top:4px;cursor:pointer;background:#e9982d;height:12px;width:9px;overflow:hidden;line-height:13px;color:#fff;font-size:14px;padding:1px 3px 0 1px;">×</span>';
+		html+='<div style="margin-bottom:4px;line-height:22px;font-weight:bold;color:#e8a240;">消息</div>';
+		html+='<p id="alert_info" style="padding:0 0 8px;line-height:1.8;color:#555766;"></p>';
+		html+='</div>';
+		div.innerHTML=html;
+		document.body.appendChild(div);
+		_id('close_alert55').onclick=function(){_id('alert_55').style.display='none';};
+        alertdiv=_id('alert_55');
+	}
+	_id('alert_info').innerHTML=s;
+	alertdiv.style.display='block';
+	var w=alertdiv.clientWidth, h=alertdiv.clientHeight;
+	alertdiv.style.marginTop=-h/2+'px';
+	alertdiv.style.marginLeft=-w/2+'px';
+}
+
+</script>
+</head>
+
+<body>
+<input type="button" value="sdfsdf1" onclick="alerts('消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息消息')" />
+
+<input type="button" value="sdfsdf2" onclick="alerts('111')" />
+</body>
+</html>

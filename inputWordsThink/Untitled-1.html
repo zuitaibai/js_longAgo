@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0;list-style:none;}
+body{font:12px/1.8 Arial;}
+
+
+.ompuwp{float:left;position:relative;margin:100px 20px 0 100px;zoom:1;}
+.ompuip{cursor:pointer;}
+.ompuidiv{position:absolute;left:-20px;top:22px;width:500px;border:1px solid #000;padding:10px;background:#fff;display:none;zoom:1;}
+.ompuitit{overflow:hidden;zoom:1;border-bottom:1px dashed #ccc;margin-bottom:16px;}
+.ompuitit p{float:left;}
+.ompuitit span{float:right;cursor:pointer;}
+.ompuictr{width:498px;border:1px solid blue;height:30px;line-height:30px;}
+.ompuiidiv{_line-height:0;}
+.ompuiidiv ul{padding:14px 0;zoom:1;overflow:hidden;line-height:2.2;}
+.ompuiidiv li{border-bottom:1px dashed #ddd;padding:0 10px;cursor:pointer;_float:left;_width:488px;}
+.ompuiidiv li.cur{background:#eee;}
+.ompures{float:left;margin-top:100px;display:none;background:#996;padding:0 8px;_width:300px;}
+.ompures p{float:left;}
+.ompures span{float:right;cursor:pointer;margin:-5px -4px 0 20px;color:red;}
+</style>
+<script type="text/javascript" src="../_js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript">
+$.fn.pasteEvents = function( delay ) {
+    if (delay == undefined) delay = 20;
+    return $(this).each(function() {
+        var $el = $(this);
+        $el.on("paste", function() {
+            $el.trigger("prepaste");
+            setTimeout(function() { $el.trigger("postpaste"); }, delay);
+        });
+    });
+};
+$(function(){
+	$('#ompuiclose').click(function(){$('#ompuidiv').hide();$('#ompuiidiv').empty();$('#ompuictr').val('');});
+	$('#ompures_span').click(function(){$('#ompures').hide();});
+	$('#ompuip').click(function(){$('#ompuidiv').show();});
+	
+	var bindEvt_zjf=function(){
+		var v=$.trim($(this).val());
+		if(v){
+			var src='data.js?console='; //var src = 'http://a.com/api/searchstar.php?key='
+			$.ajax({ // ！！！服务器返回处理：若有数据，请返回json形式字符串，若无数据，请返回'no data now' ，和以下对应。
+				type: 'get',
+			    //url: src+v+'&random='+Math.floor(10*Math.random()),
+				url: 'Untitled-1.html',
+			    beforeSend: function(XMLHttpRequest){ },
+			    success: function(data, textStatus){
+					var html='<ul>',useData={};
+					if(data=='no data now') html='没有找到相关电影/影人';
+					else{
+						//临时效果数据
+						data="{theData:[{'name':'张三','id':0},{'name':'张三2','id':0},{'name':'张三3','id':0},{'name':'张三4','id':0},{'name':'张三5','id':0},{'name':'张三6','id':0},{'name':'张三7','id':0},{'name':'张三8','id':0},{'name':'张三9','id':0},{'name':'张三10','id':0}]}";
+						
+						useData=eval('('+data+')');
+			        	for(var i=0,l=useData.theData.length;i<l;i++) html+='<li val="'+useData.theData[i].name+'">'+useData.theData[i].name+'</li>';
+						html+='</ul>';
+					}
+					
+					$('#ompuiidiv').html(html).find('li')
+						.hover(function(){$(this).addClass('cur');},function(){$(this).removeClass('cur');})
+						.click(function(){$('#ompures_p').text($(this).attr('val'));$('#ompures').show();$('#ompuidiv').hide();$('#ompuiidiv').empty();$('#ompuictr').val('');});
+			    },
+			    complete: function(XMLHttpRequest, textStatus){},
+			    error: function(){}
+			});
+		}
+		else $('#ompuiidiv').empty();
+	};
+	
+	$("#ompuictr").keyup(bindEvt_zjf).on("postpaste",bindEvt_zjf).pasteEvents();
+});
+</script>
+</head>
+
+<body>
+
+<div class="ompuwp">
+	<p class="ompuip" id="ompuip">点击我</p>
+    <div class="ompuidiv" id="ompuidiv">
+    	<div class="ompuitit"><p>添加关联电影/影人：</p><span id="ompuiclose">关闭</span></div>
+        <input type="text" id="ompuictr" class="ompuictr" value="" />
+        <div class="ompuiidiv" id="ompuiidiv"></div>
+    </div>
+</div>
+
+<div class="ompures" id="ompures"><p id="ompures_p"></p><span id="ompures_span">×</span></div>
+
+</body>
+</html>
